@@ -1,0 +1,71 @@
+.universal-footer {
+ background: #000 !important;
+ color: #fff !important;
+ padding: 40px 20px;
+ font-family: system-ui, -apple-system, sans-serif;
+ position: relative;
+ width: 100%;
+ display: block;
+ box-sizing: border-box;
+ border-top: 1px solid rgba(255, 255, 255, 0.1);
+ margin-top: 300px;
+}
+
+.footer-content {
+ max-width: 1200px;
+ margin: 0 auto;
+ text-align: center;
+}
+
+.footer-header {
+ font-size: 28px;
+ font-weight: 900;
+ margin-bottom: 20px;
+ letter-spacing: 2px;
+ text-transform: uppercase;
+ font-style: italic;
+ opacity: 0.9;
+}
+
+.footer-body {
+ max-width: 600px;
+ margin: 0 auto 30px;
+}
+
+.footer-tagline {
+ font-size: 18px;
+ font-weight: 700;
+ font-style: italic;
+ margin-bottom: 15px;
+ opacity: 0.9;
+ font-family: monospace;
+}
+
+.footer-legal {
+ font-size: 14px;
+ opacity: 0.6;
+ line-height: 1.6;
+ font-style: italic;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+ .universal-footer {
+   padding: 30px 15px;
+ }
+ 
+ .footer-header {
+   font-size: 20px;
+ }
+ 
+ .footer-tagline {
+   font-size: 16px;
+ }
+}
+
+/* Гарантия видимости */
+.universal-footer * {
+ color: #fff !important;
+ visibility: visible !important;
+ opacity: 1 !important;
+}

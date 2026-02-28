@@ -1,0 +1,50 @@
+
+@import './section_about.css';
+
+@import './section_manual.css';
+
+@import './section_subscription.css';
+
+@import './section_res_and_cont.css';
+
+@import './section_footer.css';
+
+/* Сброс базовых стилей */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Переменные для темной темы */
+:root {
+  --bg: #000;
+  --text: #fff;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --accent: #3b82f6; 
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Элементы, которые будут анимированы, изначально скрыты и немного смещены */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Когда элемент получает класс "visible", он становится видимым */
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+
+
+

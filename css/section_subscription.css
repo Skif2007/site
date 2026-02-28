@@ -1,0 +1,254 @@
+/* Обертка секции */
+.section-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое */
+}
+
+/* Заголовок */
+.section-title {
+    text-align: center;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: 900;
+    width: 100%; 
+    font-style: italic;
+    text-transform: uppercase;
+
+}
+
+/* Контейнер аккордеонов */
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center; 
+    margin-bottom: 350px;
+}
+
+/* Элемент аккордеона */
+.accordion-item {
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(51, 49, 49, 0.6);
+    transition: all 0.3s ease;
+    width: 100%; /* На мобильных - 100% */
+}
+
+/* На десктопах ширина 75% и центрирование */
+@media (min-width: 1024px) {
+    .accordion-item {
+        width: 75%;
+        margin: 0 auto; /* Центрирование */
+    }
+}
+
+/* На планшетах ширина 85% и центрирование */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .accordion-item {
+        width: 85%;
+        margin: 0 auto; /* Центрирование */
+    }
+}
+
+/* На мобильных - полная ширина (уже центрированы через .accordion-container) */
+@media (max-width: 767px) {
+    .accordion-item {
+        width: 100%;
+    }
+}
+
+/* Остальные стили без изменений */
+.accordion-item:hover {
+    background: rgba(51, 49, 49, 0.8);
+}
+
+/* Заголовок аккордеона */
+.accordion-header {
+    width: 100%;
+    padding: 20px 28px;
+    background: transparent;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.accordion-header:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.accordion-header.active {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon {
+    font-size: 24px;
+}
+
+.header-text {
+    font-size: 19px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.arrow {
+    font-size: 16px;
+    transition: transform 0.3s ease;
+    color: #FFA500;
+}
+
+.accordion-header.active .arrow {
+    transform: rotate(90deg);
+}
+
+/* Контент аккордеона */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    width: 100%;
+}
+
+.accordion-content.show {
+    max-height: 1200px;
+    padding: 10px 28px 20px;
+}
+
+/* Список ссылок */
+.subscription-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.link-item {
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    color: #FFA500;
+    border: 1px solid transparent;
+    position: relative;
+    width: 100%;
+}
+
+.link-item:hover {
+    background: rgba(255, 165, 0, 0.1);
+    border-color: rgba(255, 165, 0, 0.2);
+    transform: translateX(5px);
+}
+
+.link-item:active {
+    transform: scale(0.98);
+}
+
+.link-item::after {
+    content: '📋';
+    position: absolute;
+    right: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.link-item:hover::after {
+    opacity: 0.5;
+}
+
+/* Уведомление о копировании */
+.copy-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #FFA500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    border-left: 4px solid #FFA500;
+    font-weight: 500;
+}
+
+.copy-notification.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .section-wrapper {
+        padding: 0 15px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .accordion-header {
+        padding: 18px 20px;
+    }
+    
+    .accordion-content.show {
+        padding: 10px 20px 15px;
+    }
+    
+    .link-item {
+        padding: 12px 16px;
+        font-size: 15px;
+    }
+    
+    .copy-notification {
+        right: 15px;
+        bottom: 20px;
+        left: 15px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .accordion-header {
+        padding: 16px 18px;
+    }
+    
+    .header-text {
+        font-size: 16px;
+    }
+    
+    .icon {
+        font-size: 20px;
+    }
+}
+
+/* Для очень больших экранов */
+@media (min-width: 1600px) {
+    .accordion-item {
+        width: 75%;
+    }
+}

@@ -1,0 +1,69 @@
+/* <!-- Секция "О проекте" --> */
+.about_text_block {
+    text-align: center;
+    
+}
+.first_title {
+    font-size: 150px;
+    margin-top: 150px;
+    font-family: 'Roboto';
+    font-weight: 900;
+    
+}
+.description {
+  max-width: 780px;          
+  margin: 20px auto 0;       /* сверху 10px, по горизонтали авто для центрирования */
+  padding: 60px;             /* внутренние отступы */
+  /* border: 1px solid #5e4d4d;    тонкая серая рамка */
+  text-align: center;        /* выравнивание текста по центру */
+  font-size: 16px;           /* при желании можно увеличить размер текста */
+  border-radius: 30px;        /* немного скруглить углы (по желанию) */
+  
+}
+#about_text_0 {
+  font-family: 'Courier New', Courier, monospace; 
+  font-weight: 700;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  color: #ffffff;
+}
+#about_text_1 {
+  max-width: 500px; 
+  font-family: 'Consolas', 'Lucida Console', monospace;
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0 auto;
+  color: #ffffff;
+}
+
+#delimiter {
+    border: none;
+    height: 6px;
+    background: linear-gradient(to right, transparent, orange 50%, transparent);
+    margin: 20px 0;
+    border-radius: 3px;
+}
+
+
+/* Кнопка копирования */
+.copy-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  transition: opacity 0.2s;
+}
+.copy-btn:hover { opacity: 0.8; }
+
+/* Плавная прокрутка */
+html { scroll-behavior: smooth; }
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+  body { padding: 15px; }
+  .card { padding: 15px; }
+}

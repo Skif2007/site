@@ -1,0 +1,195 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #0a0a0a;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  color: #ffffff;
+  line-height: 1.5;
+}
+
+/* Основной контейнер секции */
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;        /* вертикальное выравнивание по центру карточек */
+  gap: 4rem;
+}
+
+/* Текстовые блоки */
+.left-block,
+.right-block {
+  flex: 1 1 400px;
+  max-width: 500px;
+  min-width: 280px;
+}
+
+/* Заголовок секции */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 1rem 0;
+  animation: fadeIn 0.6s ease both;
+}
+
+/* Подзаголовок */
+.section-subtitle {
+  font-size: 1.2rem;
+  color: #b0b0b0;
+  line-height: 1.5;
+  animation: fadeIn 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+/* Обёртка для карточек — используем Grid */
+.cards-wrapper {
+  flex: 2 1 600px;            /* занимает оставшееся пространство */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);  /* всегда две равные колонки */
+  gap: 2rem;
+}
+
+/* Карточка */
+.card {
+  background: #1a1a1a;
+  border-radius: 24px;
+  padding: 2rem 1.5rem;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  animation: fadeIn 0.6s ease both;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;               /* чтобы карточки в сетке были одинаковой высоты */
+}
+
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #ff6b00;
+  box-shadow: 0 15px 30px -10px rgba(255, 107, 0, 0.3);
+}
+
+.card-icon {
+  margin-bottom: 1.5rem;
+  color: #ff6b00;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .card-icon {
+  transform: scale(1.05);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  line-height: 1.3;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.card-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.card-link {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #ff6b00;
+  color: #ff6b00;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  margin-top: auto;
+}
+
+.card-link:hover {
+  background-color: #ff6b00;
+  color: #0a0a0a;
+  transform: scale(1.02);
+}
+
+/* Анимация */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== АДАПТАЦИЯ ===== */
+@media (max-width: 1200px) {
+  .section-container {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section-container {
+    flex-direction: column;   /* на мобильных всё в колонку */
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .left-block,
+  .right-block,
+  .cards-wrapper {
+    flex: none;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  /* На мобильных карточки перестраиваем в одну колонку */
+  .cards-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  /* Во второй секции заголовок должен быть над карточками */
+  .creators-section .right-block {
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .section-container {
+    padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1rem;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
