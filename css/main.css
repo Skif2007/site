@@ -14,7 +14,7 @@
 
 /* Переменные для темной темы */
 :root {
-  --bg: #0e0000;
+  --bg: #1b0101;
   --text: #fff;
   --card-bg: rgba(255, 255, 255, 0.05);
   --border: rgba(255, 255, 255, 0.1);
@@ -44,7 +44,7 @@ body {
 
 /* Заголовок */
 .section-title {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.65);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
     text-align: center;
     color: #fff;
     font-size: 2.5rem;

@@ -122,3 +122,5 @@ const observer = new IntersectionObserver((entries) => {
 
 // Начинаем наблюдать за каждым элементом
 elements.forEach(el => observer.observe(el));
+
+
