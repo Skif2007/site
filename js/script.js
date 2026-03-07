@@ -124,3 +124,53 @@ const observer = new IntersectionObserver((entries) => {
 elements.forEach(el => observer.observe(el));
 
 
+
+(function() {
+  document.body.style.overflow = 'hidden';
+  const targetStr = "ЭтоНiЯ";
+  const symbolsCount = targetStr.length;
+  const randomChars = ["Х", "о", "х", "л", "ы", "?"];
+  
+  const container = document.getElementById('symbolsContainer');
+  const spans = [];
+
+  for (let i = 0; i < symbolsCount; i++) {
+    const span = document.createElement('span');
+    span.className = 'symbol';
+    span.textContent = randomChars[i % randomChars.length];
+    container.appendChild(span);
+    spans.push(span);
+  }
+
+  const STEP_INTERVAL = 500; 
+  const SHAKE_DURATION = 200; 
+
+  for (let i = 0; i < symbolsCount; i++) {
+    setTimeout(() => {
+      const span = spans[i];
+      span.classList.add('shaking');
+
+      setTimeout(() => {
+        span.classList.remove('shaking');
+        span.textContent = targetStr[i];
+        span.classList.add('final');
+      }, SHAKE_DURATION);
+    }, i * STEP_INTERVAL);
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+        const preloader = document.querySelector('.preloader');
+        const content = document.querySelector('.content');
+
+      if (preloader) {
+        preloader.classList.add('hidden');
+      }
+      if (content) {
+        content.classList.add('visible');
+      }
+    document.body.style.overflow = '';
+
+    }, 3000);
+  });
+})();

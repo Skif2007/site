@@ -1,6 +1,5 @@
   /* Родительский grid контейнер для двух блоков */
   .container {
-    background-color: #1b0101;
     display: grid;
     grid-template-columns: 1fr 1fr; /* два столбца одинаковой ширины */
     gap: 40px;

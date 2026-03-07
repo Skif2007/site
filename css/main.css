@@ -9,6 +9,8 @@
 
 @import './section_footer.css';
 
+@import './preloader.css';
+
 /* Сброс базовых стилей */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -55,6 +57,13 @@ body {
     text-transform: uppercase;
 
 }
+
+
+
+
+
+
+
 
 
 
