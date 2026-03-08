@@ -1,4 +1,3 @@
-/* Обертка секции */
 .section-wrapper {
     width: 100%;
     max-width: 1200px;
@@ -6,10 +5,9 @@
     padding: 0 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрируем содержимое */
+    align-items: center; 
 }
 
-/* Контейнер аккордеонов */
 .accordion-container {
     display: flex;
     flex-direction: column;
@@ -19,33 +17,29 @@
     margin-bottom: 350px;
 }
 
-/* Элемент аккордеона */
 .accordion-item {
     border-radius: 12px;
     overflow: hidden;
     background: rgba(51, 49, 49, 0.6);
     transition: all 0.3s ease;
-    width: 100%; /* На мобильных - 100% */
+    width: 100%; 
 }
 
-/* На десктопах ширина 75% и центрирование */
 @media (min-width: 1024px) {
     .accordion-item {
         width: 75%;
-        margin: 0 auto; /* Центрирование */
+        margin: 0 auto; 
     }
 }
 
-/* На планшетах ширина 85% и центрирование */
 @media (min-width: 768px) and (max-width: 1023px) {
     .accordion-item {
         width: 85%;
-        margin: 0 auto; /* Центрирование */
+        margin: 0 auto; 
     }
 }
 
-/* На мобильных - полная ширина (уже центрированы через .accordion-container) */
-@media (max-width: 767px) {
+@media (max-width: 480px) {
     .accordion-item {
         width: 100%;
     }
@@ -207,14 +201,17 @@
     }
 }
 
+
+@media (min-width: 1600px) {
+    .accordion-item {
+        width: 75%;
+    }
+}
+
 @media (max-width: 480px) {
     .section-title {
         font-size: 24px;
         margin-bottom: 20px;
-    }
-    
-    .accordion-header {
-        padding: 16px 18px;
     }
     
     .header-text {
@@ -224,11 +221,25 @@
     .icon {
         font-size: 20px;
     }
-}
-
-/* Для очень больших экранов */
-@media (min-width: 1600px) {
+    body {
+        padding: 0;
+    }
+    .section-wrapper {
+        max-width: 100%;
+        padding: 0 15px; 
+        padding-left: 0;
+        padding-right: 0;
+    }
     .accordion-item {
-        width: 75%;
+        width: 100%;
+    }
+    .accordion-header {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding: 16px 18px;
+    }
+    .link-item {
+        padding-left: 16px;
+        padding-right: 16px;
     }
 }

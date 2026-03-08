@@ -1,27 +1,25 @@
-  /* Родительский grid контейнер для двух блоков */
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* два столбца одинаковой ширины */
+    grid-template-columns: 1fr 1fr; 
     gap: 40px;
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-top: 350px;
     margin-bottom: 350px;
   }
 
-  /* При уменьшении экрана до 768px - одна колонка и центрирование */
   @media (max-width: 768px) {
     .container {
       grid-template-columns: 1fr;
-      justify-items: center; /* центрируем элемент по горизонтали */
+      justify-items: center; 
       gap: 24px;
     }
   }
 
-  /* Общие стили для блоков внутри контейнера */
+  
   .instruction, .warning {
     width: 100%;
-    max-width: 800px; /* ограничение максимальной ширины */
+    max-width: 800px; 
   }
 
   .steps {
@@ -65,74 +63,114 @@
     }
   }
 
-  /* Предупреждение */
+
+
+
+  /* Блок предупреждения — тёмно-красный с плавным свечением */
+.warning {
+  background-color: #2d0a0a;        /* глубокий тёмно-красный, почти чёрный */
+  border: 2px solid #b45309;         /* оранжевая рамка */
+  border-radius: 30px;
+  padding: 32px;
+  color: #ffd5b0;                    /* светлый оранжево-бежевый текст */
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.3); /* начальное свечение */
+  animation: glowBorder 3s infinite ease-in-out;
+  transition: all 0.3s;
+}
+
+@keyframes glowBorder {
+  0% {
+    box-shadow: 0 0 5px #f59e0b, 0 0 10px #f59e0b;
+    border-color: #f59e0b;
+  }
+  50% {
+    box-shadow: 0 0 15px #ef4444, 0 0 30px #ef4444;
+    border-color: #ef4444;
+  }
+  100% {
+    box-shadow: 0 0 5px #f59e0b, 0 0 10px #f59e0b;
+    border-color: #f59e0b;
+  }
+}
+
+.warning-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 900;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ffb347;                    
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.warning-title .icon {
+  font-size: 2rem;
+}
+
+.warning-text p {
+  margin-bottom: 16px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.warning-text strong {
+  color: #ff8c42;                    
+  font-weight: 700;
+}
+
+.warning-footer {
+  margin-top: 24px;
+  border-top: 1px solid rgba(255, 165, 0, 0.3);
+  padding-top: 16px;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.warning-footer p {
+  margin: 6px 0;
+  opacity: 0.8;
+}
+
+.warning-footer .highlight {
+  color: #fbbf24;                   
+  font-weight: 700;
+  font-style: normal;
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+
   .warning {
-    background-color: rgba(239, 68, 68, 0.1);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    border-radius: 30px;
-    padding: 32px;
-    position: relative;
-    overflow: hidden;
-    color: #b91c1c;
-    font-style: italic;
-    max-height: 400px;
+    padding: 24px;
   }
-
-  .warning::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    width: 100%;
-    background-color: #ef4444;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-
   .warning-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 900;
     font-size: 1.3rem;
-    margin-bottom: 20px;
   }
-
-  .warning-title .icon {
-    font-style: normal;
-  }
-
   .warning-text p {
-    margin-bottom: 12px;
     font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.5;
   }
+}
 
+@media (max-width: 480px) {
+
+  .warning {
+    padding: 20px;
+  }
+  .warning-title {
+    font-size: 1.2rem;
+    gap: 6px;
+  }
+  .warning-title .icon {
+    font-size: 1.6rem;
+  }
+  .warning-text p {
+    font-size: 0.95rem;
+  }
   .warning-footer {
-    margin-top: 24px;
-    border-top: 1px solid rgba(185, 28, 28, 0.2);
-    padding-top: 16px;
-    font-size: 1rem;
-    font-style: italic;
-    opacity: 0.6;
+    font-size: 0.9rem;
   }
+}
 
-  .warning-footer p {
-    margin: 6px 0;
-  }
-
-  .warning-footer .bold {
-    opacity: 1;
-    font-weight: 700;
-  }
-
-  .warning-footer .highlight {
-    color: #0ea5e9;
-    font-weight: 700;
-  }
